@@ -1,5 +1,5 @@
-class person
-  def intializate(name = "Unknown", age, parent_permission = true)
+class Person
+  def intializate(age, name = 'Unknown', parent_permission: true)
     @id = id
     @name = name
     @age = age
@@ -9,6 +9,8 @@ class person
   attr_accessor :name, :age
   attr_reader :id
 
+  private
+
   def of_age?
     @age >= 18
   end
@@ -16,7 +18,6 @@ class person
   public
 
   def can_use_services?
-    of_age? || parent_permission
+    of_age? || @parent_permission
   end
-
 end
