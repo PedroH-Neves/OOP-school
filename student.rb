@@ -1,14 +1,14 @@
 require './person'
 
 class Studentes < Person
-  def intializate(classroom, age, name = 'Unknown', parent_permission: true)
+  def initialize(classroom, age, name = 'Unknown', parent_permission: true)
     super(age, name, parent_permission)
     @classroom = classroom
   end
 
-  def classroom_assign(classroom_assign)
-    @classroom = classroom_assign
-    classroom_assign.student.push(self) unless classroom_assign.student.include?(self)
+  def classroom=(classroom)
+    @classroom = classroom
+    classroom.student.push(self) unless classroom.student.include?(self)
   end
 
   def play_hooky

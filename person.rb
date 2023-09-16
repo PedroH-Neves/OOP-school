@@ -1,7 +1,7 @@
 require './nameable'
 
 class Person < Nameable
-  def intializate(age, name = 'Unknown', parent_permission: true)
+  def initialize(age, name = 'Unknown', parent_permission: true)
     @id = id
     @name = name
     @age = age
@@ -9,9 +9,8 @@ class Person < Nameable
     @rentals = []
   end
 
-  def add_rental(rental)
-    @rentals << rental
-    rental.person = self
+  def add_rental(book, date)
+    Rental.new(date, book, self)
   end
 
   attr_accessor :name, :age

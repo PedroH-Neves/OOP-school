@@ -5,7 +5,7 @@ class Nameable
 end
 
 class BaseDecorator < Nameable
-  def intializate(nameable)
+  def initialize(nameable)
     @nameable = nameable
   end
 
