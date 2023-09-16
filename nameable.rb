@@ -23,4 +23,5 @@ end
 class TrimmerDecorator < BaseDecorator
   def correct_name
     @nameable.correct_name.lenght > 10 ? @nameable.correct_name[0...10] : @nameable.correct_name
+  end
 end
