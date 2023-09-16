@@ -1,4 +1,6 @@
-class Person
+require './nameable'
+
+class Person < Nameable
   def intializate(age, name = 'Unknown', parent_permission: true)
     @id = id
     @name = name
@@ -8,6 +10,10 @@ class Person
 
   attr_accessor :name, :age
   attr_reader :id
+
+  def correct_name
+    @name
+  end
 
   private
 
