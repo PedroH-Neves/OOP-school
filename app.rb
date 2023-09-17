@@ -38,7 +38,7 @@ class App
     parent_permission = gets.chomp.downcase == 'y'
     print 'Classroom: '
     classroom = gets.chomp
-    Student.new(age, classroom, name:, parent_permission:)
+    Student.new(age, classroom, name, parent_permission:)
   end
 
   def create_teacher
@@ -48,7 +48,7 @@ class App
     name = gets.chomp
     print 'Specialization: '
     specialization = gets.chomp
-    Teacher.new(age, specialization, name:)
+    Teacher.new(age, specialization, name)
   end
 
   def create_person
