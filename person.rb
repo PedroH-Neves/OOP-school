@@ -14,8 +14,8 @@ class Person < Nameable
     Rental.new(date, book, self)
   end
 
-  attr_accessor :name, :age
-  attr_reader :id, :rentals
+  attr_accessor :name, :age, :parent_permission, :rentals
+  attr_reader :id, :classroom
 
   def correct_name
     @name

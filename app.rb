@@ -38,7 +38,7 @@ class App
     parent_permission = gets.chomp.downcase == 'y'
     print 'Classroom: '
     classroom = gets.chomp
-    Student.new(age, classroom, name: name, parent_permission: parent_permission)
+    Student.new(age, classroom, name:, parent_permission:)
   end
 
   def create_teacher
@@ -56,10 +56,10 @@ class App
     person_type = gets.chomp.to_i
 
     if person_type == 1
-      @people << create_student
+      @peoples << create_student
       puts 'Student created successfully'
     elsif person_type == 2
-      @people << create_teacher
+      @peoples << create_teacher
       puts 'Teacher created successfully'
     else
       puts 'Invalid option'
