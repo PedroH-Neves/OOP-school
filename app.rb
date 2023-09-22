@@ -22,7 +22,7 @@ class App
   def list_of_people
     @peoples.each do |person|
       if person.is_a?(Student)
-        puts "[Student] ID: #{person.id}, Name: #{person.name}, Age: #{person.age}"
+        puts "[Student] ID: #{person.id}, Name: #{person.name}, Age: #{person.age}, Parent: #{person.parent_permission}"
       elsif person.is_a?(Teacher)
         puts "[Teacher] ID: #{person.id}, Name: #{person.name}, Age: #{person.age}"
       end
@@ -77,14 +77,14 @@ class App
 
   def create_rental
     puts 'Select a book from the following list by number'
-    list_books
+    list_of_books
     book_index = gets.chomp.to_i
     puts 'Select a person from the following list by number (not id)'
-    list_people
+    list_of_people
     person_index = gets.chomp.to_i
     puts 'Date: '
     date = gets.chomp
-    @rentals << Rental.new(date, @books[book_index], @people[person_index])
+    @rentals << Rental.new(date, @books[book_index], @peoples[person_index])
     puts 'Rental created successfully'
   end
 
