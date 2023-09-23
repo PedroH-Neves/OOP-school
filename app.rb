@@ -14,17 +14,17 @@ class App
   end
 
   def list_of_books
-    @books.each do |book|
-      puts("Book: #{book.title} by #{book.author}")
+    @books.each_with_index do |book, index|
+      puts("Book #{index}: #{book.title} by #{book.author}")
     end
   end
 
   def list_of_people
-    @peoples.each do |person|
+    @peoples.each_with_index do |person, index|
       if person.is_a?(Student)
-        puts "[Student] ID: #{person.id}, Name: #{person.name}, Age: #{person.age}, Parent: #{person.parent_permission}"
+        puts "[Student] ID: #{person.id}, Name: #{person.name}, Age: #{person.age}, Num: #{index}"
       elsif person.is_a?(Teacher)
-        puts "[Teacher] ID: #{person.id}, Name: #{person.name}, Age: #{person.age}"
+        puts "[Teacher] ID: #{person.id}, Name: #{person.name}, Age: #{person.age}, Num: #{index}"
       end
     end
   end
