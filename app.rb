@@ -88,10 +88,10 @@ class App
     puts 'Rental created successfully'
   end
 
-  def list_rentals_for_person(people)
+  def list_rentals_for_person
     puts "Enter the person's ID:"
     person_id = gets.chomp.to_i
-    person = people.find { |p| p.id == person_id }
+    person = @peoples.find { |p| p.id == person_id }
     unless person
       puts 'Person not found.'
       return
