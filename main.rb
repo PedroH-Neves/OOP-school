@@ -1,6 +1,6 @@
-require './app'
-require './display'
-require './display_option'
+require './lib/app'
+require './lib/display'
+require './lib/display_option'
 
 class Main
   def initialize
