@@ -7,11 +7,11 @@ require_relative 'student'
 
 class App
   attr_reader :books, :peoples, :rentals
-  
+
   def initialize
-    @books = []
-    @peoples = []
-    @rentals = []
+    @books = Manager.load_books || []
+    @peoples = Manager.load_peoples || []
+    @rentals = Manager.load_rentals || []
   end
 
   def list_of_books
