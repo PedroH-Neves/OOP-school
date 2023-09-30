@@ -11,10 +11,20 @@ class Manager
   end
 
   def save_file
-    books = create_json_books(data[:books])
-    peoples = create_json_peoples(data[:peoples])
-    rentals = create_json_rentals(data[:rentals])
+   json_data.each do |item|
+    file_path = "./store/#{item.keys.first}.json"
+    File.open(file_path, "w") {|file| file.write(item.values.first)}
+   end
   end
+
+  def json_data
+    books = create_json_books(@data[:books])
+    peoples = create_json_peoples(@data[:peoples])
+    rentals = create_json_rentals(@data[:rentals])
+    [{books: books}, {peoples: peoples}, {rentals: rentals}]
+  end
+
+  private
 
   def create_json_books(books)
     result = []
@@ -60,7 +70,7 @@ class Manager
       result <<
       {
         date: rental.date,
-        book: rental.book,
+        book: rental.book.title,
         person: rental.person.name,
       }
     end
