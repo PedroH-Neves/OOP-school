@@ -61,6 +61,6 @@ class Manager
   end
 
   def serialize_objects(obj_list)
-    obj_list.map { |obj| Marshal.dump(obj).force_encoding("ISO-8859-1").encode("UTF-8") }
+    obj_list.map { |obj| Marshal.dump(obj).force_encoding('ISO-8859-1').encode('UTF-8') }
   end
 end
