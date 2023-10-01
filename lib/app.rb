@@ -6,11 +6,12 @@ require_relative 'nameable'
 require_relative 'student'
 
 class App
+  attr_reader :books, :peoples, :rentals
+
   def initialize
-    @books = []
-    @peoples = []
-    @rentals = []
-    @students = []
+    @books = Manager.load_books || []
+    @peoples = Manager.load_peoples || []
+    @rentals = Manager.load_rentals || []
   end
 
   def list_of_books
@@ -48,7 +49,7 @@ class App
     name = gets.chomp
     print 'Specialization: '
     specialization = gets.chomp
-    Teacher.new(age, specialization, name)
+    Teacher.new(age, name, specialization)
   end
 
   def create_person
