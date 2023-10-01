@@ -1,10 +1,10 @@
 require 'person'
 require 'rental'
 
-describe Person do 
+describe Person do
   let(:age) { '12' }
   let(:name) { 'John Doe' }
-  let(:instance) {described_class.new(age, name)}
+  let(:instance) { described_class.new(age, name) }
 
   describe '.initialize' do
     it 'has the right args' do
@@ -15,7 +15,7 @@ describe Person do
       expect(instance.rentals).to eq([])
     end
   end
-  
+
   describe '#add_rental' do
     let(:book) { 'frankstein' }
     let(:date) { '10' }
@@ -35,7 +35,7 @@ describe Person do
 
     it 'create new instance of Rental class' do
       expect(Rental).to receive(:new).with(book, date, instance.class)
-      
+
       subject
     end
   end
@@ -51,12 +51,12 @@ describe Person do
   describe '#of_age?' do
     context 'above age' do
       let(:age) { '21' }
-      let(:instance) {described_class.new(age, name)}
+      let(:instance) { described_class.new(age, name) }
 
       subject { instance.of_age? }
 
       it 'returns true' do
-        expect(subject).to eq(true) 
+        expect(subject).to eq(true)
       end
     end
     context 'below age' do
@@ -65,6 +65,6 @@ describe Person do
       it 'returns false' do
         expect(subject).to eq(false)
       end
-    end    
+    end
   end
 end

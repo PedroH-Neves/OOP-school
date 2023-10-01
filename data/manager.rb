@@ -51,7 +51,7 @@ class Manager
     books = create_json_books(@data[:books])
     peoples = create_json_peoples(@data[:peoples])
     rentals = create_json_rentals(@data[:rentals])
-    [{ books: books }, { peoples: peoples }, { rentals: rentals }]
+    [{ books: books}, { peoples: peoples}, { rentals: rentals}]
   end
 
   private

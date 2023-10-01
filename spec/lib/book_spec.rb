@@ -2,10 +2,10 @@ require 'book'
 require 'rental'
 require 'pry'
 
-describe Book do    
+describe Book do
   let(:title) { 'Dune' }
   let(:author) { 'Frank' }
-  let(:instance) {described_class.new(title, author)}
+  let(:instance) { described_class.new(title, author) }
 
   describe '.initialize' do
     it 'has the right args' do
@@ -37,9 +37,8 @@ describe Book do
 
     it 'create new instance of Rental class' do
       expect(Rental).to receive(:new).with(date, instance.class, person)
-      
+
       subject
     end
   end
 end
-

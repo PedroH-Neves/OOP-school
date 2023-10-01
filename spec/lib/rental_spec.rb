@@ -2,11 +2,11 @@ require 'rental'
 require 'book'
 require 'person'
 
-describe Rental do 
+describe Rental do
   let(:date) { '07-01-2002' }
-  let(:book) { Book.new('Dune', 'Frank Herbert')}
-  let(:person) { Person.new('18', 'John')}
-  let(:instance) {described_class.new(date, book, person)}
+  let(:book) { Book.new('Dune', 'Frank Herbert') }
+  let(:person) { Person.new('18', 'John') }
+  let(:instance) { described_class.new(date, book, person) }
 
   describe '.initialize' do
     it 'has the right args' do
