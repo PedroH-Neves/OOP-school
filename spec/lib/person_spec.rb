@@ -5,6 +5,16 @@ describe Person do
   let(:age) { '12' }
   let(:name) { 'John Doe' }
   let(:instance) {described_class.new(age, name)}
+
+  describe '.initialize' do
+    it 'has the right args' do
+      expect(instance.id).to be_a(Integer)
+      expect(instance.age).to eq('12')
+      expect(instance.name).to eq('John Doe')
+      expect(instance.parent_permission).to eq(true)
+      expect(instance.rentals).to eq([])
+    end
+  end
   
   describe '#add_rental' do
     let(:book) { 'frankstein' }
