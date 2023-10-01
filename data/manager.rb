@@ -48,27 +48,19 @@ class Manager
   end
 
   def json_data
-    books = create_json_books(@data[:books])
-    peoples = create_json_peoples(@data[:peoples])
-    rentals = create_json_rentals(@data[:rentals])
+    books = create_json(@data[:books])
+    peoples = create_json(@data[:peoples])
+    rentals = create_json(@data[:rentals])
     [{ books: books }, { peoples: peoples }, { rentals: rentals }]
   end
 
   private
 
-  def create_json_books(books)
-    serialize_objects(books).to_json
-  end
-
-  def create_json_peoples(peoples)
-    serialize_objects(peoples).to_json
-  end
-
-  def create_json_rentals(rentals)
-    serialize_objects(rentals).to_json
+  def create_json(element)
+    serialize_objects(element).to_json
   end
 
   def serialize_objects(obj_list)
-    obj_list.map { |obj| Marshal.dump(obj) }
+    obj_list.map { |obj| Marshal.dump(obj).force_encoding("ISO-8859-1").encode("UTF-8") }
   end
 end
