@@ -15,7 +15,7 @@ class Person < Nameable
   end
 
   def add_rental(book, date)
-    @rentals << Rental.new(date, book, self)
+    @rentals << Rental.new(book, date, self)
   end
 
   def correct_name
@@ -23,7 +23,7 @@ class Person < Nameable
   end
 
   def of_age?
-    @age >= 18
+    @age.to_i >= 18
   end
 
   private
